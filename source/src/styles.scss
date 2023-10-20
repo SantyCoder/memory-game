@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+//- Global config variables
+@import 'assets/scss/config/variables';
+//- Layout
+@import 'assets/scss/layout/_grid';
+//- Base style
+@import 'assets/scss/base/_document';
+@import 'assets/scss/base/_embedded';
+@import 'assets/scss/base/_forms';
+@import 'assets/scss/base/_grouping';
+@import 'assets/scss/base/_interactive';
+@import 'assets/scss/base/_links';
+@import 'assets/scss/base/_scripting';
+@import 'assets/scss/base/_sections';
+@import 'assets/scss/base/_table';
+@import 'assets/scss/base/_text';
+//- Mixins
+
+//- Components
+@import 'assets/scss/components/_animations';
+@import 'assets/scss/components/_loaders';
+@import 'assets/scss/components/_icons';
+@import 'assets/scss/components/_modal';
+@import 'assets/scss/components/_notification';
+@import 'assets/scss/components/_tabs';
+@import 'assets/scss/components/_memory_game';
+@import 'assets/scss/components/_resume';
+@import 'assets/scss/components/_menu';
+//- Template
+@import 'assets/scss/template/_content';
+//- Theme variables
+@import 'assets/scss/theme/_colors';
+@import 'assets/scss/theme/_typography';
+@import 'assets/scss/theme/_default';

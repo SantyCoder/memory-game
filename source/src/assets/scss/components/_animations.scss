@@ -1,0 +1,22 @@
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg) translate(30px)
+  }
+}
+
+@keyframes slide-up {
+  from{
+    top: 8%;
+  }
+  to {
+    top: -8%;
+    opacity: 0;
+  }
+}
+
+@keyframes slide-down {
+  to {
+    top: 8%;
+    opacity: 1;
+  }
+}

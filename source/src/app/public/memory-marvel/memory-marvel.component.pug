@@ -1,0 +1,8 @@
+.memory-cards
+  ul.card-list
+    li(*ngFor="let item of elements; let i = index")
+      .card('(click)'="openCard(i)" '[class.open]'="item.open")
+        .front
+          img(src="assets/images/brand/marvel-logo.svg" alt="Marvel")
+        .back
+          img(src="{{item.thumbnail?.path + '.' + item.thumbnail?.extension}}" alt="{{item.name}}")

@@ -1,0 +1,8 @@
+.notification(class="{{notification.type}} {{status}}")
+  .col-1
+    i(class="icon-{{notification.type}}")
+  .col-10
+    h6 {{notification.title}}
+    p {{notification.message}}
+  .col-1
+    a.icon-close('(click)'='close()')

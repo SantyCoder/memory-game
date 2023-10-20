@@ -1,0 +1,15 @@
+.modal(class="{{status}} {{modal.type}}" '[class.executing]'='executing')
+  .modal-content
+    span.icon-close('(click)'='close()')
+    .modal-header
+      i(class="icon-{{modal.icon}}")
+    .modal-body
+      h5 {{modal.title}}
+      p {{modal.message}}
+      ul.modal-actions
+        li
+          button.cancel('(click)'='close()') {{modal.cancel}}
+        li
+          button.confirm('(click)'='execute()') {{modal.accept}}
+    .clock
+      span
