@@ -1,0 +1,56 @@
+.memory-cards{
+  margin: 30px auto;
+  width: $col-10;
+}
+.card-list{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: space-between;
+  li{
+    height: 180px;
+    margin: 10px 0;
+    perspective: 1000px;
+    width: 180px;
+    .card{
+      cursor: pointer;
+      height: 98%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.8s;
+      width: 98%;
+      .front,
+      .back{
+        backface-visibility: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        overflow: auto;
+        position: absolute;
+        width: 100%;
+        >img{
+          width: 100%;
+        }
+      }
+      .back{
+        >img{
+          left: 50%;
+          position: absolute;
+          transform: translate(-50%, -50%);
+          top: 50%;
+          width: 250px;
+        }
+      }
+      .back{
+        transform: rotateY(180deg);
+      }
+      &.open{
+        transform: rotateY(180deg);
+        pointer-events: none;
+      }
+    }
+  }
+}

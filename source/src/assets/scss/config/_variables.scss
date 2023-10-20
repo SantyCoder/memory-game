@@ -1,0 +1,88 @@
+//- Container site
+$max-width: 1280px;
+//- Folders
+$base: '/assets/';
+$images: $base + 'images/';
+$backgrounds: $images + 'backgrounds/';
+$fonts: $base + 'fonts/';
+$icons: $base + 'fonts/memory-game/';
+
+//- Typography
+$icon-typography: "memory-game" !default;
+
+//- Weight Typography
+//- e.g.
+//$thin : 100;
+$extra-light : 200;
+//$light : 300;
+$regular: 400;
+$medium : 500;
+//-$semi-bold: 600;
+//-$bold : 700;
+
+//- Breakpoints
+$desktop: $max-width;
+$tablet-landscape: 1024px;
+$tablet-portrait: 960px;
+$tablet: 768px;
+$mobile: 560px;
+$mobile-landscape: 480px;
+$mobile-portrait: 320px;
+
+//- Grid
+$col-1: 8.33333333%;
+$col-2: 16.66666667%;
+$col-3: 25%;
+$col-4: 33.33333333%;
+$col-5: 41.66666667%;
+$col-6: 50%;
+$col-7: 58.33333333%;
+$col-8: 66.66666667%;
+$col-9: 75%;
+$col-10: 83.33333333%;
+$col-11: 91.66666667%;
+$col-12: 100%;
+
+//- Stack layout
+$index-combo: 3;
+$index-menu: 4;
+$index-notification: 5;
+$index-modal: 5;
+$index-uploader: 2;
+// Typography
+$big-text: 2.488rem;
+$main-text: 2.074rem;
+$title-text: 1.728rem;
+$subtitle-text: 1.44rem;
+$highlight-text: 1.2rem;
+$default-text: 1rem;
+$tiny-text: 0.833rem;
+
+//- Icons
+$icon-apps: "\e919";
+$icon-user: "\e91a";
+$icon-angular: "\e90c";
+$icon-portfolio: "\e90d";
+$icon-codepen: "\e90e";
+$icon-css: "\e90f";
+$icon-settings: "\e910";
+$icon-game: "\e911";
+$icon-github: "\e912";
+$icon-html: "\e913";
+$icon-javascript: "\e914";
+$icon-linkedin: "\e915";
+$icon-school: "\e916";
+$icon-terminal: "\e917";
+$icon-vue: "\e918";
+$icon-add_circle: "\e900";
+$icon-warning: "\e901";
+$icon-arrow-down: "\e902";
+$icon-arrow-up: "\e903";
+$icon-arrow-left: "\e904";
+$icon-arrow-rigth: "\e905";
+$icon-close: "\e906";
+$icon-error: "\e907";
+$icon-search: "\e908";
+$icon-success: "\e909";
+$icon-delete: "\e90a";
+$icon-info: "\e90b";

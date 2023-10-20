@@ -1,0 +1,137 @@
+.resume {
+	padding: 30px 0;
+  .personal-data {
+    box-sizing: border-box;
+		padding: 10px;
+		position: sticky;
+		top: 0;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    h1,
+    h2,
+    p {
+      text-align: center;
+    }
+
+    .photo {
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      height: 240px;
+      justify-content: center;
+      margin: 0 auto;
+      overflow: hidden;
+      width: 240px;
+
+      img {
+        height: 300px;
+        width: 300px;
+      }
+    }
+
+    .social {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin: 0 8px;
+
+        a {
+					border: 1px solid silver;
+					border-radius: 50%;
+          cursor: pointer;
+					display: block;
+					font-size: 22px;
+					height: 40px;
+					line-height: 40px;
+					text-align: center;
+					width: 40px;
+          i {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .work-data {
+    box-sizing: border-box;
+    padding: 10px 30px;
+
+    h2 {
+			margin: 0;
+			padding: 30px 0 20px;
+		}
+		ul{
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+  }
+}
+
+.experience {
+	position: relative;
+	padding: 0 0 0 35px !important;
+  z-index: 3;
+
+  &:after {
+		background: silver;
+		bottom: -10px;
+    content: '';
+    height: 100%;
+		left: 5px;
+    position: absolute;
+    width: 1px;
+	}
+
+  li {
+    position: relative;
+    z-index: 2;
+
+    &:after {
+      background: black;
+      border-radius: 50%;
+      content: '';
+      height: 7px;
+      left: -33px;
+      position: absolute;
+      top: 10px;
+      width: 7px;
+    }
+
+    h3{
+      margin: 0 0 10px 0;
+		}
+		h5{
+			margin: 0;
+			+p{
+				margin: 0;
+			}
+		}
+		.desc{
+			padding: 20px 0;
+			p{
+				margin-top: 0;
+			}
+		}
+  }
+}
+
+.language{
+	li{
+		display: inline-block;
+		border-radius: 20px;
+		margin: 10px;
+		padding: 5px 10px;
+		min-width: 40px;
+		text-align: center;
+	} 
+}

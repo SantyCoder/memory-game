@@ -1,0 +1,231 @@
+/************************************************
+ * SECTIONS
+************************************************/
+body{
+  background: $bg-main-body;
+  color: $base-color;
+}
+
+
+/************************************************
+ * LINKS
+************************************************/
+
+
+
+/************************************************
+ * TEMPLATE
+************************************************/
+
+
+/************************************************
+ * COMPONENTS
+************************************************/
+.modal{
+  background: $bg-modal-color;
+  .modal-content{
+    background: $base-color;
+    box-shadow: $general-shadow;
+    .icon-close{
+      background: $base-color;
+      &:hover{
+        background: $bg-close-color;
+        color: $base-color;
+      }
+    }
+    .modal-header{
+      i{
+        color: $base-color;
+      }
+    }
+    .modal-body{
+      .modal-actions{
+        border-top: 1px solid $border-color;
+      }
+    }
+  }
+  &.success{
+    .modal-content .modal-header{
+      background: $bg-success-color;
+    }
+  }
+  &.warning{
+    .modal-content .modal-header{
+      background: $bg-warning-color;
+    }
+  }
+  &.error{
+    .modal-content .modal-header{
+      background: $bg-error-color;
+    }
+  }
+  &.info{
+    .modal-content .modal-header{
+      background: $bg-info-color;
+    }
+  }
+}
+
+.notification{
+  background: $bg-notification-color;
+  .col-1:last-child{
+    color: $base-color;
+  }
+  .col-10 p{
+    color: $base-color;
+  }
+  &.success{
+    border-left: 4px solid $bg-success-color;
+    .col-1:first-child{
+      color: $bg-success-color;
+    }
+    .col-10 h6{
+      color: $bg-success-color;
+    }
+  }
+  &.warning{
+    border-left: 4px solid $bg-warning-color;
+    .col-1:first-child{
+      color: $bg-warning-color;
+    }
+    .col-10 h6{
+      color: $bg-warning-color;
+    }
+  }
+  &.error{
+    border-left: 4px solid $bg-error-color;
+    .col-1:first-child{
+      color: $bg-error-color;
+    }
+    .col-10 h6{
+      color: $bg-error-color;
+    }
+  }
+  &.info{
+    border-left: 4px solid $bg-info-color;
+    .col-1:first-child{
+      color: $bg-info-color;
+    }
+    .col-10 h6{
+      color: $bg-info-color;
+    }
+  }
+}
+
+.clock{
+  >span{
+    background: $bg-close-color;
+    &:before,
+    &:after {
+      background: $bg-info-color;
+    }
+  }
+}
+
+.tabs{
+  ul{
+    box-shadow: $box-shadow-tabs;
+    background: $base-color;
+    li a{
+      font-family: $complementary-typography;
+      color: $text-color;
+      &.active{
+        background: $bg-tab-active;
+        color: $text-tab-color;
+      }
+    }
+  }
+}
+
+.menu{
+  ul{
+    border-color: $bg-menu-active-color;
+    li{
+      a{
+        color: $bg-menu-color;
+        &.active{
+          color: $bg-menu-active-color;
+        }
+      }
+    }
+  }
+}
+
+/************************************************
+ * TABLE
+************************************************/
+
+
+/************************************************
+ * FORMS
+************************************************/
+
+
+/************************************************
+ * PAGES
+************************************************/
+.resume{
+  .personal-data{
+    h1{
+      color: $text-title-color;
+    }
+    h2{
+      color: $text-subtitle-color;
+    }
+    .city{
+      color: $bg-menu-color;
+    }
+    .social li a{
+      border-color: $bg-menu-color;
+      color: $bg-menu-color;
+      &:hover{
+        color: $text-title-color;
+      }
+    }
+  }
+  .work-data {
+    h2{
+      color: $text-title-color;
+    }
+  }
+}
+
+.experience {
+  &:after {
+		background: $border-time-line;
+	}
+  li{ 
+    &:after {
+      background: $bg-bullet-color;
+    }
+    h3{
+      color: $text-subtitle-color;
+    }
+    h5{
+      color: $bg-menu-color;
+      +p{
+        color: $bg-warning-color;
+      }
+    }
+  }
+}
+
+.language{
+	li{
+	  background: $bg-info-color;
+	} 
+}
+
+.card-list{
+  li{
+    .card{
+      .front,
+      .back{
+        background: $bg-marvel-card;
+      }
+    }
+  }
+}
+/************************************************
+ * MEDIA QUERIES
+************************************************/

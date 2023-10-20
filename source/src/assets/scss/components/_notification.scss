@@ -1,0 +1,46 @@
+.notification {
+  border-radius: 0 10px 10px 0;
+  display: flex;
+  padding: 10px;
+  position: fixed;
+  right: 2%;
+  top: -8%;
+  width: $col-3;
+
+  &.show {
+    animation: slide-down 0.6s linear both;
+  }
+
+  &.hide {
+    animation: slide-up 0.6s linear both;
+  }
+
+  .col-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      font-size: 24px;
+    }
+
+    a {
+      cursor: pointer;
+      font-size: 12px;
+    }
+  }
+
+  .col-10 {
+    padding: 5px 10px;
+
+    h6 {
+      margin: 0 0 5px 0;
+      font-size: $default-text;
+      line-height: 1.5rem;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}
