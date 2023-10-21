@@ -1,0 +1,17 @@
+.timer{
+  h5{
+    margin: 0 0 8px 0;
+  }
+  .box-time{
+    border-radius:10px;
+    max-width: 100px;
+    padding: 2px;
+    text-align: center;
+    p{
+      border-radius: 10px;
+      font-size: $subtitle-text;
+      margin: 0;
+      padding: 5px 0;
+    }
+  }
+}

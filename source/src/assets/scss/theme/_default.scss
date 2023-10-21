@@ -10,7 +10,32 @@ body{
 /************************************************
  * LINKS
 ************************************************/
-
+a{
+  &.btn{
+    border: 1px solid $bg-menu-active-color;
+    background: $bg-menu-active-color;
+    color: $base-color;
+    font-family: $complementary-typography;
+    font-weight: $medium;
+    font-size: $highlight-text;
+    &:hover{
+      background: transparent;
+      color: $bg-menu-active-color;
+    }
+    &.ghost{
+      border-color: $bg-ghost-color;
+      background: $bg-ghost-color;
+      color: $base-color;
+      &:hover{
+        background: transparent;
+        color: $bg-ghost-color;
+      }
+    }
+  }
+  i{
+    font-size: $subtitle-text;
+  }
+}
 
 
 /************************************************
@@ -28,6 +53,7 @@ body{
     box-shadow: $general-shadow;
     .icon-close{
       background: $base-color;
+      color: $text-color;
       &:hover{
         background: $bg-close-color;
         color: $base-color;
@@ -39,6 +65,9 @@ body{
       }
     }
     .modal-body{
+      h5, p{
+        color: $text-color;
+      }
       .modal-actions{
         border-top: 1px solid $border-color;
       }
@@ -122,6 +151,29 @@ body{
   }
 }
 
+.loading{
+  >span:first-child{
+    &:before{
+      border-bottom-color: $bg-marvel-card;
+      border-top-color: $bg-marvel-card;
+    }
+    &:after{
+      border-bottom-color: lighten( $bg-info-color, 20);
+      border-top-color: lighten( $bg-info-color, 20);
+    }
+  }
+  >span:last-child{
+    &:before{
+      border-bottom-color: $bg-marvel-card;
+      border-top-color: $bg-marvel-card;
+    }
+    &:after{
+      border-bottom-color: lighten( $bg-info-color, 20);
+      border-top-color: lighten( $bg-info-color, 20);
+    }
+  }
+}
+
 .tabs{
   ul{
     box-shadow: $box-shadow-tabs;
@@ -151,15 +203,76 @@ body{
   }
 }
 
+.timer{
+  .box-time{
+    background: $bg-timer;
+    p{
+      background: $bg-close-color;
+    }
+  }
+}
+
+.score{
+  li{
+    .success{
+      background: $bg-success-color;
+    }
+    .attemps{
+      background: $bg-info-color;
+    }
+  }
+}
+
+.circle-game{
+  background: $bg-info-color;
+  color: $base-color;
+}
+
 /************************************************
  * TABLE
 ************************************************/
-
-
+table{
+  &.score-table{
+    thead tr th{
+      background: $bg-success-color;
+    }
+    tbody tr td{
+      background: $border-color;
+      color: $text-color;
+    }
+  }
+}
 /************************************************
  * FORMS
 ************************************************/
+button{
+  border: 1px solid $bg-menu-active-color;
+  background: $bg-menu-active-color;
+  color: $base-color;
+  font-family: $complementary-typography;
+  font-weight: $medium;
+  font-size: $highlight-text;
+  &:hover{
+    background: transparent;
+    color: $bg-menu-active-color;
+  }
 
+  &.cancel{
+    border-color: $bg-cancel-color;
+    background: $bg-cancel-color;
+    color: $base-color;
+    &:hover{
+      background: transparent;
+      color: $bg-cancel-color;
+    }
+  }
+
+  &:disabled{
+    border-color: $bg-disabled-color;
+    background: $bg-disabled-color;
+    color: $bg-menu-color;
+  }
+}
 
 /************************************************
  * PAGES
@@ -222,6 +335,16 @@ body{
       .front,
       .back{
         background: $bg-marvel-card;
+      }
+    }
+    &.disabled{
+      .card{
+        .front{
+          background: $bg-menu-color;
+          img{
+            filter: grayscale(1);
+          }
+        }
       }
     }
   }

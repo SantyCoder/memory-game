@@ -1,8 +1,50 @@
 .memory-cards
-  ul.card-list
-    li(*ngFor="let item of elements; let i = index")
+  .row
+    .col-4
+      ul.score
+        li 
+          P Intentos 
+          span.attemps &nbsp;{{score.attempts}} 
+        li 
+          p Aciertos
+          span.success &nbsp;{{score.successes}}
+    .col-2
+      game-timer('(timeSave)'="setTimeCurrent($event)")
+    .col-6
+      button('(click)'="startMemoryGame()") Iniciar juego
+      button.cancel('(click)'="gameOver()" '[disabled]'='gameScore.length == 0') Finalizar
+      a.btn.ghost(*ngIf="gameScore.length > 0" '(click)'="controllerScore()") 
+        i.icon-score
+        | Puntaje
+  .loading(*ngIf="elements.length == 0")
+    span
+    span
+  ul.card-list(*ngIf="elements.length > 0")
+    li(*ngFor="let item of elements; let i = index" '[class.disabled]'="score.init")
       .card('(click)'="openCard(i)" '[class.open]'="item.open")
         .front
           img(src="assets/images/brand/marvel-logo.svg" alt="Marvel")
         .back
           img(src="{{item.thumbnail?.path + '.' + item.thumbnail?.extension}}" alt="{{item.name}}")
+
+.modal.info('[class.show]'='openScore')
+  .modal-content
+    span.icon-close('(click)'='controllerScore()')
+    .modal-header
+      i(class="icon-info")
+    .modal-body
+      h5 Puntaje del Jugador
+      table.score-table
+        thead
+          tr
+            th Juego
+            th Intentos
+            th Minutos
+            th Segundos
+        tbody
+          tr(*ngFor="let score of gameScore; let i = index")
+            td
+              span.circle-game {{i + 1}}
+            td {{score.attempts}}
+            td {{score.minutes | number: '2.0'}}
+            td {{score.seconds | number: '2.0'}}
