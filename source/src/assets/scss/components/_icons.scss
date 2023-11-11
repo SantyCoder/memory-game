@@ -24,12 +24,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-score {
+  &:before {
+    content: $icon-score; 
+  }
+}
+.icon-sass {
+  &:before {
+    content: $icon-sass; 
+  }
+}
 .icon-apps {
   &:before {
     content: $icon-apps; 
   }
 }
-
 .icon-user {
   &:before {
     content: $icon-user; 

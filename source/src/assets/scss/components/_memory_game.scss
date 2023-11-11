@@ -1,6 +1,22 @@
 .memory-cards{
   margin: 30px auto;
   width: $col-10;
+  .loading{
+    height: 800px;
+  }
+  .row{
+    align-items: flex-end;
+    display: flex;
+    margin-bottom: 30px;
+    .col-6{
+      display: flex;
+      justify-content: flex-end;
+      .cancel,
+      .btn{
+        margin-left: 20px;
+      }
+    }
+  }
 }
 .card-list{
   margin: 0;
@@ -52,5 +68,19 @@
         pointer-events: none;
       }
     }
+    &.disabled{
+      cursor: not-allowed;
+      .card{
+        pointer-events: none;
+      }
+    }
   }
+}
+
+.circle-game{
+  border-radius: 50%;
+  display: block;
+  height: 20px;
+  margin: 0 auto;
+  width: 20px;
 }

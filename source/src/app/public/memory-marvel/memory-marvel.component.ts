@@ -1,23 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 // Global common services handlers
 import { BaseService } from '../../base/base.service';
+import { TimerService } from '../../common/timer/timer.service';
+import { ModalService } from '../../common/modal/modal.service';
+import { NotificationService } from '../../common/notification/notification.service';
 // Config
 import { Md5 } from 'ts-md5';
 import * as PARAMS from '../../../../parameters.json';
+// Models
 import { Score } from './score.model';
-//-Timer
-const TIMEOUT_DELAY = 1500;
+import { Timer } from '../../common/timer/timer.model';
+// Timer
+const TIMEOUT_DELAY = 1000;
+// Number pairs per game
 const NUMBER_CARD = 10;
 @Component({
   selector: 'game-memory-marvel',
   templateUrl: './memory-marvel.component.pug',
   styleUrls: ['./memory-marvel.component.scss']
 })
-export class MemoryMarvelComponent {
+export class MemoryMarvelComponent implements OnInit, OnDestroy {
 
   private dataAPI: any[] = [];
 
   public elements: any[] = [];
+
   public charactersMock: any[] = [
     {
       "id": 1011334,
@@ -4992,24 +4999,37 @@ export class MemoryMarvelComponent {
 
   score: Score = {
     attempts: 0,
-    successes: 0
+    successes: 0,
+    init: true
   };
 
+  gameScore: any[] =  [];
+
+  openScore: boolean = false;
+
   constructor(
-    private service: BaseService
+    private service: BaseService,
+    private modal: ModalService,
+    private notify: NotificationService,
+    private timer: TimerService
   ) { }
 
   ngOnInit(): void {
     this.filters['hash'] = this.md5.hashStr(this.filters.ts + this.config.PRIVATE_KEY_MARVEL + this.config.KEY_MARVEL);
-    //this.getHeroes(this.filters, this.action);
-    this.startGame();
+    //Obtener elementos del API de Marvel
+    this.getHeroes(this.filters, this.action);
   }
+
+  ngOnDestroy():void{
+    this.timer.stopChronometro();
+  }
+
   /**
-   * @description Se inicia el juego de memoria
+   * @description Inicializar juego
    */
-  startGame(){
-    this.filterCharacters(this.charactersMock);
-    this.shuffleCharacters();
+  startMemoryGame():void{
+    this.score.init = false;
+    this.timer.startChronometro();
   }
 
   /**
@@ -5028,6 +5048,7 @@ export class MemoryMarvelComponent {
         // TODO: Adjust when get the API docs 
         if (response.code == 200 && items.length > 0) {
           this.filterCharacters(items);
+          this.shuffleCharacters();
           //if (this.notify) { this.status.state(true, response); }
         }
       });
@@ -5054,6 +5075,7 @@ export class MemoryMarvelComponent {
    * 5.- Nuevamente se barajean y se insertan en la vista final del juego.
    */
   shuffleCharacters() {
+    this.elements = [];
     let shuffleItems = [];
     //-Clone array
     const allCharacters: any = [...this.dataAPI];
@@ -5100,8 +5122,12 @@ export class MemoryMarvelComponent {
    */
   equalPairsCharacters(){
     if(this.currentSelected[0] == this.currentSelected[1]){
+      this.score.successes++
       this.findCardSuccess(true);
+      //-Verificar si el juego ha sido terminado
+      this.validateScore();
     }else{
+      this.score.attempts++
       this.findCardSuccess(false);
     }
   }
@@ -5123,11 +5149,93 @@ export class MemoryMarvelComponent {
   }
 
   /**
+   * @description Si el juego se ha completo preguntar al usuario si desea jugar nuevamente
+   */
+  validateScore(){
+    if(this.score.successes === NUMBER_CARD){
+      this.timer.stopChronometro();
+      this.modal.show({
+        title: 'Juego términado',
+        message: '¿Deseas volver a jugar?',
+        type: 'success',
+        icon: 'success',
+        accept: 'Reiniciar',
+        cancel: 'Cancelar',
+        handler: ()=> {
+          //reiniciar juego
+          this.shuffleCharacters();
+          //Cerrar modal
+          this.modal.hide();
+        }
+      });
+    }
+  }
+  
+  /**
+   * @description Obtener el tiempo en que se realizó el juego
+   * y Almacenar os puntajes
+   * @param event 
+   */
+  setTimeCurrent(event: Timer){
+    const totalScore: any = {...this.score, ...event};
+    //Reiniciar puntajes a 0
+    this.cleanGameScore();
+    //Almacena puntaje de juegos terminados
+    this.gameScore.push(totalScore);
+  }
+
+  /**
+   * @description Limpiar el puntaje del juego activo
+   */
+  cleanGameScore():void{
+    this.score.attempts = 0;
+    this.score.successes = 0;
+    this.score.init = true;
+  }
+
+  /**
    * @description se limpia el timer que se inició al momento de seleccionar personaje.
    */
   cancelTimer(){
     clearTimeout(this.idTime);
     this.idTime = undefined;
+  }
+
+  /**
+   * @description Notificar al usuario que desea terminar el juego y reiniciar valores a 0
+   */
+  gameOver(){
+    this.modal.show({
+      title: 'Términar juego',
+      message: 'Al terminar se borra tu historial de puntos ¿Deseas terminar el juego?',
+      type: 'warning',
+      icon: 'warning',
+      accept: 'Terminar',
+      cancel: 'Cancelar',
+      handler: ()=> {
+        //Detener cronometro
+        this.timer.stopChronometro();
+        //Reiniciar puntajes a 0
+        this.cleanGameScore();
+        //reiniciar juego
+        this.shuffleCharacters();
+        //Cerrar modal
+        this.modal.hide();
+        //Limpiar historial de puntos
+        this.gameScore = [];
+      }
+    });
+  }
+
+  /**
+   * @description Abrir modal con puntajes de juegos almacenados
+   */
+  controllerScore():void{
+    if(this.openScore){
+      this.openScore = false;
+      return;
+    }
+    this.openScore = true;
   }
 
 

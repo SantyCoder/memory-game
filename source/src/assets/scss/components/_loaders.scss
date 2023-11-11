@@ -22,3 +22,60 @@
     }
   }
 }
+
+.border-loading-style{
+  border: 3px solid silver;
+  border-radius: 50%;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+.center-absolute{
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.loading{
+  position: relative;
+  >span:first-child{
+    @extend .center-absolute;
+    &:before{
+      animation: rotate-left 2s cubic-bezier(0.26, 1.36, 0.74,-0.29) infinite;
+      @extend .border-loading-style;
+      @extend .center-absolute;
+      content: "";
+      height: 160px;
+      width: 160px;
+    }
+    &:after{
+      animation: rotate-left 2s cubic-bezier(0.26, 1.36, 0.74,-0.29) infinite reverse;
+      @extend .border-loading-style;
+      @extend .center-absolute;
+      content: "";
+      height: 140px;
+      width: 140px;
+    }
+  }
+  >span:last-child{
+    @extend .center-absolute;
+    &:before{
+      animation: rotate-left 2s cubic-bezier(0.26, 1.36, 0.74,-0.29) infinite;
+      @extend .border-loading-style;
+      @extend .center-absolute;
+      content: "";
+      height: 120px;
+      width: 120px;
+    }
+    &:after{
+      animation: rotate-left 2s cubic-bezier(0.26, 1.36, 0.74,-0.29) infinite reverse;
+      @extend .border-loading-style;
+      @extend .center-absolute;
+      content: "";
+      height: 100px;
+      width: 100px;
+    }
+  }
+}

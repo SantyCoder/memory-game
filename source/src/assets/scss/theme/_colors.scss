@@ -29,7 +29,8 @@ $bright-sun: #EDA928;
 // - Green
 $forest-green: #1BAA25;
 $mountain-meadow: #23BF73;
-
+// - Voilet
+$dark-violet: #9B00A0;
 // - Primary Colors - //
 $brand-color: $denim;
 
@@ -53,9 +54,12 @@ $bg-close-color: $support-color;
 $bg-tab-active: $second-accent-color;
 $bg-menu-color: lighten($support-color, 40);
 $bg-menu-active-color: $first-complement-color;
-$bg-disabled-color: lighten($support-color, 90);
+$bg-disabled-color: lighten($support-color, 60);
+$bg-cancel-color: lighten($brand-color, 5);
+$bg-ghost-color: $dark-violet;
 $bg-bullet-color: $first-complement-color;
 $bg-marvel-card: $crimson;
+$bg-timer: linear-gradient(to bottom right, $bg-error-color, $bg-warning-color);
 //- Text
 $text-title-color: $first-complement-color;
 $text-subtitle-color: lighten($brand-color, 10);
