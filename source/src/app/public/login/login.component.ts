@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ModalService } from '../../common/modal/modal.service';
 import { NotificationService } from '../../common/notification/notification.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ValidateService } from '../../common/validate/validate.service';
 //-Modal
 @Component({
   selector: 'game-login',
@@ -8,12 +10,21 @@ import { NotificationService } from '../../common/notification/notification.serv
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+
+  public sending: boolean = false;
+
+  public frmLogin: FormGroup = new FormGroup({});
+
   constructor(
     private _modal: ModalService,
     private _notify: NotificationService
   ){ }
 
   ngOnInit(){
+    this.frmLogin = new FormGroup({
+      email: new FormControl('', [Validators.required, ValidateService.email]),
+      password: new FormControl('',[Validators.required])
+    });
     setTimeout(() => {
       /*this._modal.show({
         title: 'Inicio de sesión',
@@ -27,6 +38,12 @@ export class LoginComponent {
         }
       });*/
     }, 1000);
+  }
+
+
+  submit():void {
+    this.sending = true;
+    console.log(this.frmLogin.value)
   }
 
   openNotify(){

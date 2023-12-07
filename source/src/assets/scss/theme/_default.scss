@@ -174,6 +174,12 @@ a{
   }
 }
 
+.sending{
+  &:after{
+    box-shadow: $bullet-shadow;
+  }
+}
+
 .tabs{
   ul{
     box-shadow: $box-shadow-tabs;
@@ -228,6 +234,10 @@ a{
   color: $base-color;
 }
 
+game-validate{
+  color: $bg-error-color;
+}
+
 /************************************************
  * TABLE
 ************************************************/
@@ -245,6 +255,71 @@ table{
 /************************************************
  * FORMS
 ************************************************/
+form {
+  >div >ul,
+  >ul,
+  fieldset > ul{
+    &.floating{
+      >li{
+        textarea, 
+        input[type="email"],
+        input[type="text"],
+        input[type="tel"],
+        input[type="password"]{
+          &:read-only{
+            color: $bg-disabled-color;
+            border-color: $bg-disabled-color;
+          }
+          //Invalid field
+          &:invalid{
+            &:not(:placeholder-shown) + label {
+              color: $bg-error-color;
+            }
+          }
+          &.ng-invalid.ng-touched + label{
+            color: $bg-error-color;
+          }
+          //Valid field
+          &:valid:not(:placeholder-shown){
+            + label {
+              bottom: 32px;
+              font-size: 13px;
+              color: $text-label-active;
+            }
+          }
+          &.ng-valid,
+          &:focus{
+            +label{
+              bottom: 32px;
+              color: $text-focus-color;
+              font-size: 13px;
+            }
+          }
+          &.ng-invalid.ng-touched.ng-dirty{
+            border-bottom-color: $bg-error-color;
+            color: $bg-error-color;
+            /*&:not([value=""]) + label{
+              bottom: 32px;
+              font-size: 13px;
+            }*/
+          }
+        }
+        textarea + label, 
+        input[type="email"] +label,
+        input[type="text"] + label,
+        input[type="tel"] + label,
+        input[type="password"] + label {
+          color: $text-label; 
+        }
+      }
+    }
+  }
+  legend{
+    color: $bg-disabled-color;
+    font-family: $complementary-typography;
+    font-size: $highlight-text;
+  }
+}
 button{
   border: 1px solid $bg-menu-active-color;
   background: $bg-menu-active-color;
@@ -270,20 +345,51 @@ button{
   &:disabled{
     border-color: $bg-disabled-color;
     background: $bg-disabled-color;
-    color: $bg-menu-color;
+    color: $text-disabled-color;
+  }
+}
+
+select,
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+input[type="search"] {
+  border-bottom: 1px solid $text-label;
+  color: $bg-disabled-color;
+  &:focus,
+  &:hover{
+    color: $text-focus-color;
+    border-bottom-color: $text-focus-color;
+  }
+  &.ng-invalid.ng-touched {
+    border-bottom-color: $bg-error-color;
+  }
+  &:invalid{
+    border-bottom-color: $bg-error-color;
+  }
+  &:valid:not(:placeholder-shown):not(:focus){
+    border-bottom-color: $text-label-active;
   }
 }
 
 /************************************************
  * PAGES
 ************************************************/
+.login{
+  >div{
+    background: $base-color;
+    form h1{
+      color: $bg-info-color;
+    }
+  }
+}
 .resume{
   .personal-data{
     h1{
       color: $text-title-color;
-    }
-    h2{
-      color: $text-subtitle-color;
     }
     .city{
       color: $bg-menu-color;
@@ -315,9 +421,18 @@ button{
       color: $text-subtitle-color;
     }
     h5{
-      color: $bg-menu-color;
+      color: $bg-disabled-color;
       +p{
         color: $bg-warning-color;
+      }
+    }
+    .projects{
+      font-family: $complementary-typography;
+      font-size: $highlight-text;
+      ul{
+        li:after{
+          background: $bg-timer;
+        }
       }
     }
   }
