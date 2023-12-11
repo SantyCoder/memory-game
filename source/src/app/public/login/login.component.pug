@@ -1,3 +1,23 @@
-p login works!
+.login
+  div
+    header
+      .brand
+        img(src="assets/images/portfolio/santiago-brand.jpg" alt="Santiago Flores")
+    form('[formGroup]'="frmLogin" automplete="off" '(ngSubmit)'='submit()')
+      h1 Iniciar sesi&oacute;n
+      fieldset
+        legend Favor de llenar los campos
+        ul.floating
+          li
+            input(type="text" id="txtEmail" autocomplete="off" placeholder="" name="email" 'formControlName'='email')
+            label(for="txtEmail") Email
+            game-validate('[control]'='frmLogin.controls["email"]')
+          li
+            input(type="password" id="txtPassword" autocomplete="off" placeholder="" name="password" 'formControlName'='password')
+            label(for="txtPassword") Contrase&ntilde;a
+            game-validate('[control]'='frmLogin.controls["password"]')
+      p
+        span('[class.sending]'='sending')
+          button(type="submit" '[disabled]'='frmLogin.invalid || sending') Iniciar sesi&oacute;n
 
-button((click)="openNotify()") Abrir
+//-button((click)="openNotify()") Abrir

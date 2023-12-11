@@ -1,0 +1,26 @@
+game-validate{
+  display: block;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  span{
+    display: block;
+    font-size: 10px;
+    padding: 6px 30px;
+    position: relative;
+    text-align: right;
+    &:after{
+      bottom: 0;
+      content: $icon-info;
+      font-family: $icon-typography;
+      font-size: 12px;
+      height: 14px;
+      line-height: 14px;
+      margin: auto;
+      position: absolute;
+      right: 12px;
+      top: 0;
+      width: 14px;
+    }
+  }
+}

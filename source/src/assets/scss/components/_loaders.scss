@@ -79,3 +79,42 @@
     }
   }
 }
+
+.sending{
+  display: inline-block;
+  position: relative;
+  button{
+    &:disabled{
+      color: transparent;
+    }
+  }
+  &:before{
+    animation: ball 1s linear infinite;
+    background: radial-gradient(circle 8px at 8px center, #FFF 100%, transparent 0),
+                radial-gradient(circle 8px at 8px center, #FFF 100%, transparent 0);
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 16px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  &:after{
+    animation: move-ball 1s cubic-bezier(0.5,300,0.5,-300) infinite;
+    content: "";
+    background:#FFF;
+    border-radius: 50%;
+    bottom: 0;
+    height: 16px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 16px;
+  }
+}

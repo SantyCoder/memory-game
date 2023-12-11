@@ -7,7 +7,7 @@ import { ResumeComponent } from '../public/resume/resume.component';
 export const APP_ROUTES: Routes = [
   {
     path: '',
-    component: LoginComponent
+    component: ResumeComponent
   },
   {
     path: APP_ROUTES_NAMES.LOGIN,
