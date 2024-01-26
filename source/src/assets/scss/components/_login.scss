@@ -32,3 +32,18 @@
     }
   }
 }
+
+@media(max-width: $tablet){
+  .login{
+    >div{
+      width: $col-7;
+    }
+  }
+}
+@media(max-width: $mobile){
+  .login{
+    >div{
+      width: $col-9;
+    }
+  }
+}
