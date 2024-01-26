@@ -7,6 +7,7 @@
   .row{
     align-items: flex-end;
     display: flex;
+    flex-wrap: wrap;
     margin-bottom: 30px;
     .col-6{
       display: flex;
@@ -83,4 +84,62 @@
   height: 20px;
   margin: 0 auto;
   width: 20px;
+}
+
+@media(max-width: $tablet-portrait){
+  .memory-cards{
+    width: $col-11;
+    .loading{
+      height: 600px;
+    }
+  }
+  .card-list{
+    li{
+      height: 160px;
+      width: 160px;
+    }
+  }
+}
+@media(max-width: $tablet){
+  .memory-cards{
+    width: 98%;
+    .loading{
+      height: 500px;
+    }
+    .row{
+      .col-4{
+        width: $col-8;
+      }
+      .col-2{
+        width: $col-4;
+      }
+      .col-6{
+        justify-content: center;
+        margin: 30px 0 0 0;
+        width: $col-12;
+      }
+    }
+  }
+  .card-list{
+    li{
+      height: 120px;
+      width: 120px;
+    }
+  }
+}
+@media(max-width: $mobile){
+  .card-list{
+    li{
+      height: 100px;
+      width: 100px;
+    }
+  }
+}
+@media(max-width: $mobile-landscape){
+  .card-list{
+    li{
+      height: 80px;
+      width: 80px;
+    }
+  }
 }
