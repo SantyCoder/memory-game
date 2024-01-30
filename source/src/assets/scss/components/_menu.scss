@@ -25,3 +25,9 @@
     }
   }
 }
+
+@media(max-width: $mobile){
+  .menu{
+    width: 38px;
+  }
+}

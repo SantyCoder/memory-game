@@ -44,3 +44,14 @@
     }
   }
 }
+
+@media(max-width: $tablet-portrait){
+  .notification{
+    width: $col-5;
+  }
+}
+@media(max-width: $mobile){
+  .notification{
+    width: $col-9;
+  }
+}
