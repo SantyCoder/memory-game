@@ -11,7 +11,7 @@
     .col-2
       game-timer('(timeSave)'="setTimeCurrent($event)")
     .col-6
-      button('(click)'="startMemoryGame()") Iniciar juego
+      button('(click)'="startMemoryGame()") Iniciar
       button.cancel('(click)'="gameOver()" '[disabled]'='gameScore.length == 0') Finalizar
       a.btn.ghost(*ngIf="gameScore.length > 0" '(click)'="controllerScore()") 
         i.icon-score

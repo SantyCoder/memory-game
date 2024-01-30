@@ -86,6 +86,23 @@
   width: 20px;
 }
 
+@media(max-width: $tablet-landscape){
+  .memory-cards{
+    .row{
+      .col-4{
+        width: $col-8;
+      }
+      .col-2{
+        width: $col-4;
+      }
+      .col-6{
+        justify-content: center;
+        margin: 30px 0 0 0;
+        width: $col-12;
+      }
+    }
+  }
+}
 @media(max-width: $tablet-portrait){
   .memory-cards{
     width: $col-11;
@@ -106,19 +123,6 @@
     .loading{
       height: 500px;
     }
-    .row{
-      .col-4{
-        width: $col-8;
-      }
-      .col-2{
-        width: $col-4;
-      }
-      .col-6{
-        justify-content: center;
-        margin: 30px 0 0 0;
-        width: $col-12;
-      }
-    }
   }
   .card-list{
     li{
@@ -128,6 +132,15 @@
   }
 }
 @media(max-width: $mobile){
+  .memory-cards .row .col-6{
+    .cancel,
+    .btn{
+      margin-left: 10px;
+    }
+    button, a{
+      padding: 8px 14px;
+    }
+  }
   .card-list{
     li{
       height: 100px;

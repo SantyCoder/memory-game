@@ -16,7 +16,7 @@
     position: relative;
     transform: scale(0.6);
     transition: all 0.4s;
-    width: $col-3;
+    width: $col-4;
     .icon-close{
       border-radius: 50%;
       cursor: pointer;
@@ -84,6 +84,28 @@
     .modal-content{
       opacity: 1;
       transform: scale(1);
+    }
+  }
+}
+
+@media(max-width: $tablet-landscape){
+  .modal{
+    .modal-content{
+      width: $col-5;
+    }
+  }
+}
+@media(max-width: $tablet-portrait){
+  .modal{
+    .modal-content{
+      width: $col-7;
+    }
+  }
+}
+@media(max-width: $mobile){
+  .modal{
+    .modal-content{
+      width: $col-11;
     }
   }
 }

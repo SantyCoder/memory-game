@@ -6,7 +6,7 @@ import { MemoryMarvelComponent } from '../public/memory-marvel/memory-marvel.com
 import { ResumeComponent } from '../public/resume/resume.component';
 export const APP_ROUTES: Routes = [
   {
-    path: '',
+    path: APP_ROUTES_NAMES.RESUME,
     component: ResumeComponent
   },
   {
@@ -18,7 +18,8 @@ export const APP_ROUTES: Routes = [
     component: MemoryMarvelComponent
   },
   {
-    path: APP_ROUTES_NAMES.RESUME,
-    component: ResumeComponent
+    path: '',
+    redirectTo: '/resume',
+    pathMatch: 'full'
   }
-]
+];
